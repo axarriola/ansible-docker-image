@@ -1,0 +1,13 @@
+image: "docker:19.03.5"
+
+before_script:
+  - docker info
+  - export HTTP_PROXY="http://proxy-ip:port"
+  - export HTTPS_PROXY="http://proxy-ip:port"
+  - apk add make
+
+build:
+  stage: build
+  script:
+    - make build test
+    - make push

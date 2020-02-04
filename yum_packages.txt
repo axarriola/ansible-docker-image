@@ -1,0 +1,12 @@
+initscripts
+gcc
+python-devel
+python-pip 
+python36
+python36-devel
+python36-pip
+sudo
+which
+git
+ssh-keyscan
+sshpass
