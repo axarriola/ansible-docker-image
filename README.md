@@ -15,14 +15,17 @@ If you don't need both python versions, you can delete the python#_libs.txt file
 In my case I needed both, as not everything worked with python3 (for example, python3-libselinux did not exist for Centos), so that had to run with python2. And I also had issues with some tasks running with python2, mostly due to the different unicode handling.
 
 ## Run
+```
 sudo docker run --rm -it \
                 --net=host \
                 python3 \
                 ansible-image \
                 /usr/local/bin/ansible-playbook --version
+```
 
 ### Ansible playbooks
 You're probably thinking how to access your playbooks from inside the container. You can mount your repository as a volume, or pull it from inside the container.
+In case of using this image with a cicd tool like gitlab-ci, your code would be checked out inside it, so that's taken care for you.
 
 ### Running ansible as non-root
 You can create another user in the docker file and set that as the container user.
